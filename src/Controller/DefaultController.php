@@ -16,4 +16,24 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+
+    /**
+     * @Route("/admin", name="admin_default")
+     */
+    public function admin()
+    {
+        return $this->render('default/index.html.twig', [
+            'role' => 'Admin',
+        ]);
+    }
+
+    /**
+     * @Route("/profile", name="user_default")
+     */
+    public function profile()
+    {
+        return $this->render('default/index.html.twig', [
+            'role' => 'User',
+        ]);
+    }
 }
