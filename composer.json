@@ -28,6 +28,7 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.1",
         "friendsofphp/php-cs-fixer": "^2.12",
+        "fzaninotto/faker": "^1.8",
         "phpstan/phpstan": "^0.11.2",
         "symfony/debug-pack": "*",
         "symfony/maker-bundle": "^1.0",

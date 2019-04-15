@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+
+        <meta charset="utf-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        {% endblock %}
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+
+        <!--begin::Web font -->
+        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+        <script>
+            WebFont.load({
+                google: {"families":["Poppins:300,400,500,600,700","Roboto:300,400,500,600,700"]},
+                active: function() {
+                    sessionStorage.fonts = true;
+                }
+            });
+        </script>
+
+
+        <!--end::Web font -->
+
+        <!--begin::Global Theme Styles -->
+        <link href="{{ asset('css/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
+
+        <!--RTL version:<link href="assets/vendors/base/vendors.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+        <link href="{{ asset('css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+
+        <!--RTL version:<link href="assets/demo/default/base/style.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+
+        <!--end::Global Theme Styles -->
+
+        <!--begin::Page Vendors Styles -->
+        <link href="{{ asset('css/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
+
+        <!--RTL version:<link href="assets/vendors/custom/fullcalendar/fullcalendar.bundle.rtl.css" rel="stylesheet" type="text/css" />-->
+
+        <!--end::Page Vendors Styles -->
+{#        <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" />#}
+
     </head>
     <body>
+    <main role="main" class="container">
         {% block body %}{% endblock %}
+    </main>
+    <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+        <div class="container text-center">
+            <small>Copyright &copy; Your Website</small>
+        </div>
+    </footer>
         {% block javascripts %}
-            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+            <!-- begin::Quick Nav -->
+
+            <!--begin::Global Theme Bundle -->
+            <script src="{{asset('vendors.bundle.js')}}" type="text/javascript"></script>
+            <script src="{{asset('scripts.bundle.js')}}" type="text/javascript"></script>
+
+            <!--end::Global Theme Bundle -->
+
+            <!--begin::Page Vendors -->
+            <script src="{{asset('fullcalendar.bundle.js')}}" type="text/javascript"></script>
+
+            <!--end::Page Vendors -->
+
+            <!--begin::Page Scripts -->
+            <script src="{{asset('dashboard.js')}}" type="text/javascript"></script>
+
+            <!--end::Page Scripts -->
         {% endblock %}
     </body>
 </html>
