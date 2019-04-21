@@ -10,9 +10,10 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Description</th>
                 <th>Isbn</th>
                 <th>Author</th>
+                <th>Stock</th>
+                <th>Sold</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,9 +22,10 @@
             <tr>
                 <td>{{ book.id }}</td>
                 <td>{{ book.name }}</td>
-                <td>{{ book.description }}</td>
                 <td>{{ book.isbn }}</td>
                 <td>{{ book.author }}</td>
+                <td>{{ book.stock }}</td>
+                <td>{{ book.sold }}</td>
                 <td>
                     <a href="{{ path('book_show', {'id': book.id}) }}">show</a>
                     <a href="{{ path('book_edit', {'id': book.id}) }}">edit</a>

@@ -18,7 +18,8 @@ class BookType extends AbstractType
             ->add('author')
             ->add('tags')
             ->add('categories')
-            ->add('owner')
+            ->add('stock')
+            ->add('sold')
         ;
     }
 

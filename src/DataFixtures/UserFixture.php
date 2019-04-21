@@ -22,16 +22,18 @@ class UserFixture extends BaseFixture
     {
         $user = new User();
         $user->setEmail('admin@example.com');
+        $user->setPhoneNumber($this->faker->phoneNumber);
         $user->setFirstName('Admin');
-        $user->setPassword($this->encoder->encodePassword($user, 'admin123'));
+        $user->setPassword($this->encoder->encodePassword($user, 'abc123'));
         $user->setRoles(['ROLE_ADMIN']);
         $manager->persist($user);
 
-        $this->createMany(20, 'main_users', function($count) {
+        $this->createMany(3, 'main_users', function($count) {
             $user = new User();
             $user->setEmail($this->faker->safeEmail);
+            $user->setPhoneNumber($this->faker->phoneNumber);
             $user->setFirstName($this->faker->firstName);
-            $user->setPassword($this->encoder->encodePassword($user, 'admin123'));
+            $user->setPassword($this->encoder->encodePassword($user, 'abc123'));
 
             return $user;
         });

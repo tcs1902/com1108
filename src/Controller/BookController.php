@@ -17,6 +17,8 @@ class BookController extends AbstractController
 {
     /**
      * @Route("/", name="book_index", methods={"GET"})
+     * @param BookRepository $bookRepository
+     * @return Response
      */
     public function index(BookRepository $bookRepository): Response
     {
@@ -88,6 +90,9 @@ class BookController extends AbstractController
 
     /**
      * @Route("/{id}", name="book_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Book $book
+     * @return Response
      */
     public function delete(Request $request, Book $book): Response
     {

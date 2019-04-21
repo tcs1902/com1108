@@ -47,6 +47,11 @@ class User implements UserInterface
      */
     private $books;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $phoneNumber;
+
     public function __construct()
     {
         $this->books = new ArrayCollection();
@@ -176,5 +181,17 @@ class User implements UserInterface
     public function __toString()
     {
         return $this->getFirstName();
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
     }
 }
