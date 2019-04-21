@@ -70,11 +70,17 @@ class Book implements TimestampableInterface
      */
     private $sold;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\BookImage", mappedBy="book", orphanRemoval=true)
+     */
+    private $bookImages;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
         $this->categories = new ArrayCollection();
         $this->orderDetails = new ArrayCollection();
+        $this->bookImages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -248,4 +254,41 @@ class Book implements TimestampableInterface
 
         return $this;
     }
+
+    /**
+     * @return Collection|BookImage[]
+     */
+    public function getBookImages(): Collection
+    {
+        return $this->bookImages;
+    }
+
+    public function addBookImage(BookImage $bookImage): self
+    {
+        if (!$this->bookImages->contains($bookImage)) {
+            $this->bookImages[] = $bookImage;
+            $bookImage->setBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBookImage(BookImage $bookImage): self
+    {
+        if ($this->bookImages->contains($bookImage)) {
+            $this->bookImages->removeElement($bookImage);
+            // set the owning side to null (unless already changed)
+            if ($bookImage->getBook() === $this) {
+                $bookImage->setBook(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }
