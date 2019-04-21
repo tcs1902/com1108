@@ -65,18 +65,6 @@ class BookImage
         return $this;
     }
 
-    public function getBook(): ?Book
-    {
-        return $this->book;
-    }
-
-    public function setBook(?Book $book): self
-    {
-        $this->book = $book;
-
-        return $this;
-    }
-
     public function getImagePath()
     {
         return UploaderHelper::BOOK_IMAGE.'/'.$this->getFilename();

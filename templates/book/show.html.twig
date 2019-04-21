@@ -29,6 +29,19 @@
             </tr>
         </tbody>
     </table>
+    <h3>Images</h3>
+    <div class="row border border-secondary m--padding-10">
+        {% for image in book.bookImages %}
+            <div class="col-md-3 m--margin-bottom-10">
+                <div class="thumbnail">
+                    <a href="{{ uploaded_asset(image.imagePath) }}">
+                        <img src="{{ uploaded_asset(image.imagePath) }}" alt="Lights" style="width:100%">
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
 
     <a href="{{ path('book_index') }}">back to list</a>
 
