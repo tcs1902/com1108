@@ -8,20 +8,16 @@
     {{ include('book/_form.html.twig', {'button_label': 'Update'}) }}
 
     <h3>Images</h3>
-    <div class="row">
+    <div class="row border border-secondary m--padding-10">
         {% for image in book.bookImages %}
-            <div class="col-md-4">
+            <div class="col-md-3 m--margin-bottom-10">
                 <div class="thumbnail">
                     <a href="{{ uploaded_asset(image.imagePath) }}">
                         <img src="{{ uploaded_asset(image.imagePath) }}" alt="Lights" style="width:100%">
-                        <div class="caption">
-                            <p>Lorem ipsum...</p>
-                        </div>
                     </a>
                 </div>
             </div>
         {% endfor %}
-
     </div>
 
 
